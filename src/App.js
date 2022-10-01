@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
 function App() {
+
+  const [name, setName] = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="container d-flex justify-content-center">
+        <textarea className='form-control text-center fs-1 my-5 p-3'
+          type='text'
+          name='name'
+          onChange={() => { setName(document.querySelector('textarea[name=name]').value); }} />
+      </div>
+
+      <div className='container text-center text-white text-break'>
+        <h1>{name}</h1>
+      </div>
+    </main>
   );
 }
 
